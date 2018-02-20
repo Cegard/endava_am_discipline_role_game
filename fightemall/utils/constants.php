@@ -1,0 +1,3 @@
+<?php 
+	const INIT_HOOMAN_STRENGTH = 5;
+	const INIT_HOOMAN_AGILITY = 5;
