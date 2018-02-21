@@ -1,17 +1,13 @@
 <?php namespace Game\Models;
-	use Game\Models\Character as Character;
+	include_once ("fightemall/utils/constants.php");
+	use Game\Models\Character;
 	
 	
 	class Dwarf extends Character{
 		
 		
-		private function __construct(){
-			
-		}
-		
-		
 		public static function createNewCharacter(){
-			return new Dwarf();
+			return new Dwarf(INIT_DWARF_STRENGTH, INIT_DWARF_AGILITY);
 		}
 	}
 ?>

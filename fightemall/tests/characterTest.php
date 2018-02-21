@@ -1,5 +1,5 @@
 <?php
-	include ("fightemall/utils/constants.php");
+	include_once ("fightemall/utils/constants.php");
 	use PHPUnit\Framework\TestCase,
 		Game\Controllers\Game;
 	use	Game\Models\{Hooman, Dwarf, Elf};
@@ -38,6 +38,28 @@
 			$hasHoomanDefaultStats = $hasHoomanDefaultStrength && $hasHoomanDefaultAgility;
 			
 			$this->assertTrue($hasHoomanDefaultStats);
+		}
+		
+		
+		public function testNewDwarfHasDwarfStats(){
+			$optionForNewCharacter = 1;
+			$dwarf = Game::createCharacter($optionForNewCharacter);
+			$hasDwarfDefaultStrength = $dwarf->getStrength() == INIT_DWARF_STRENGTH;
+			$hasDwarfDefaultAgility = $dwarf->getAgility() == INIT_DWARF_AGILITY;
+			$hasDwarfDefaultStats = $hasDwarfDefaultStrength && $hasDwarfDefaultAgility;
+			
+			$this->assertTrue($hasDwarfDefaultStats);
+		}
+		
+		
+		public function testNewElfHasElfStats(){
+			$optionForNewCharacter = 2;
+			$elf = Game::createCharacter($optionForNewCharacter);
+			$hasElfDefaultElfStrength = $elf->getStrength() == INIT_ELF_STRENGTH;
+			$hasElfDefaultElfAgility = $elf->getAgility() == INIT_ELF_AGILITY;
+			$hasElfDefaultStats = $hasElfDefaultElfStrength && $hasElfDefaultElfAgility;
+			
+			$this->assertTrue($hasElfDefaultStats);
 		}
 	}
 ?>

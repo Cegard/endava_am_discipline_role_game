@@ -1,17 +1,13 @@
 <?php namespace Game\Models;
-	use Game\Models\Character as Character;
+	include_once ("fightemall/utils/constants.php");
+	use Game\Models\Character;
 	
 	
 	class Elf extends Character{
 		
 		
-		private function __construct(){
-			
-		}
-		
-		
 		public static function createNewCharacter(){
-			return new Elf();
+			return new Elf(INIT_ELF_STRENGTH, INIT_ELF_AGILITY);
 		}
 	}
 ?>
