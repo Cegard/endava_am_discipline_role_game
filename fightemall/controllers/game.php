@@ -5,16 +5,5 @@
 	
 	
 	class Game{
-		
-		private static $options = array(
-			Hooman::class,
-			Dwarf::class,
-			Elf::class
-		);
-		
-		
-		public static function createCharacter($option){
-			return self::$options[$option]::createNewCharacter();
-		}
 	}
 ?>

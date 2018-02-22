@@ -2,7 +2,7 @@
 	namespace Game\Tests;
 	include_once ("fightemall/tests/utils.php");
 	use PHPUnit\Framework\TestCase,
-		Game\Controllers\Game;
+		Game\Controllers\CharacterController;
 	use	Game\Models\{Hooman, Dwarf, Elf};
 	#use const Game\Tests\OPTION_FOR_HOOMAN_SELECTION;
 	#use Game\Utils; #\{INIT_HOOMAN_STRENGTH, INIT_HOOMAN_AGILITY};
@@ -12,17 +12,17 @@
 		
 		
 		public function testCreateHoomanFromSelection(){
-			$this->assertInstanceOf(Hooman::class, Game::createCharacter(OPTION_FOR_HOOMAN_SELECTION));
+			$this->assertInstanceOf(Hooman::class, CharacterController::createCharacter(OPTION_FOR_HOOMAN_SELECTION));
 		}
 		
 		
 		public function testCreateDwarfFromSelection(){
-			$this->assertInstanceOf(Dwarf::class, Game::createCharacter(OPTION_FOR_DWARF_SELECTION));
+			$this->assertInstanceOf(Dwarf::class, CharacterController::createCharacter(OPTION_FOR_DWARF_SELECTION));
 		}
 		
 		
 		public function testCreateElfFromSelection(){
-			$this->assertInstanceOf(Elf::class, Game::createCharacter(OPTION_FOR_ELF_SELECTION));
+			$this->assertInstanceOf(Elf::class, CharacterController::createCharacter(OPTION_FOR_ELF_SELECTION));
 		}
 		
 		
@@ -45,5 +45,8 @@
 			
 			$this->assertTrue($hasElfDefaultStats);
 		}
+		
+		
+		
 	}
 ?>
