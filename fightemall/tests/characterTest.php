@@ -1,8 +1,10 @@
 <?php
-	include_once ("fightemall/utils/constants.php");
+	namespace Game\Tests;
+	include_once ("fightemall/tests/utils.php");
 	use PHPUnit\Framework\TestCase,
 		Game\Controllers\Game;
 	use	Game\Models\{Hooman, Dwarf, Elf};
+	#use const Game\Tests\OPTION_FOR_HOOMAN_SELECTION;
 	#use Game\Utils; #\{INIT_HOOMAN_STRENGTH, INIT_HOOMAN_AGILITY};
 	
 	
@@ -10,54 +12,36 @@
 		
 		
 		public function testCreateHoomanFromSelection(){
-			$selection = 0;
-			
-			$this->assertInstanceOf(Hooman::class, Game::createCharacter($selection));
+			$this->assertInstanceOf(Hooman::class, Game::createCharacter(OPTION_FOR_HOOMAN_SELECTION));
 		}
 		
 		
 		public function testCreateDwarfFromSelection(){
-			$selection = 1;
-			
-			$this->assertInstanceOf(Dwarf::class, Game::createCharacter($selection));
+			$this->assertInstanceOf(Dwarf::class, Game::createCharacter(OPTION_FOR_DWARF_SELECTION));
 		}
 		
 		
 		public function testCreateElfFromSelection(){
-			$selection = 2;
-			
-			$this->assertInstanceOf(Elf::class, Game::createCharacter($selection));
+			$this->assertInstanceOf(Elf::class, Game::createCharacter(OPTION_FOR_ELF_SELECTION));
 		}
 		
 		
 		public function testNewHoomanHasHoomanStats(){
-			$optionForNewCharacter = 0;
-			$hooman = Game::createCharacter($optionForNewCharacter);
-			$hasHoomanDefaultStrength = $hooman->getStrength() == INIT_HOOMAN_STRENGTH;
-			$hasHoomanDefaultAgility = $hooman->getAgility() == INIT_HOOMAN_AGILITY;
-			$hasHoomanDefaultStats = $hasHoomanDefaultStrength && $hasHoomanDefaultAgility;
+			$hasHoomanDefaultStats = checkCharacterStats(OPTION_FOR_HOOMAN_SELECTION);
 			
 			$this->assertTrue($hasHoomanDefaultStats);
 		}
 		
 		
 		public function testNewDwarfHasDwarfStats(){
-			$optionForNewCharacter = 1;
-			$dwarf = Game::createCharacter($optionForNewCharacter);
-			$hasDwarfDefaultStrength = $dwarf->getStrength() == INIT_DWARF_STRENGTH;
-			$hasDwarfDefaultAgility = $dwarf->getAgility() == INIT_DWARF_AGILITY;
-			$hasDwarfDefaultStats = $hasDwarfDefaultStrength && $hasDwarfDefaultAgility;
+			$hasDwarfDefaultStats = checkCharacterStats(OPTION_FOR_DWARF_SELECTION);
 			
 			$this->assertTrue($hasDwarfDefaultStats);
 		}
 		
 		
 		public function testNewElfHasElfStats(){
-			$optionForNewCharacter = 2;
-			$elf = Game::createCharacter($optionForNewCharacter);
-			$hasElfDefaultElfStrength = $elf->getStrength() == INIT_ELF_STRENGTH;
-			$hasElfDefaultElfAgility = $elf->getAgility() == INIT_ELF_AGILITY;
-			$hasElfDefaultStats = $hasElfDefaultElfStrength && $hasElfDefaultElfAgility;
+			$hasElfDefaultStats = checkCharacterStats(OPTION_FOR_ELF_SELECTION);
 			
 			$this->assertTrue($hasElfDefaultStats);
 		}
