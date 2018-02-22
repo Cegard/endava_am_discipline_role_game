@@ -61,5 +61,18 @@
 			
 			$this->assertTrue($hasElfDefaultStats);
 		}
+		
+		
+		public function testHoomanCanHit(){
+			$hoomanOption = 0;
+			$attacker = Game::createCharacter($hoomanOption);
+			$defender = Game::createCharacter($hoomanOption);
+			$previousLifePoints = $defender->getLifePoints();
+			CharacterController.attack($attacker, $defender);
+			$laterLifePoints = $defender->getLifePoints();
+			$wasDefenderHit = $previousLifePoints > $laterLifePoints;
+			
+			$this->assertTrue($wasDefenderHit);
+		}
 	}
 ?>
