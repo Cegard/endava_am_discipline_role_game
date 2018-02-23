@@ -6,6 +6,7 @@
 		
 		
 		public static function createNewWeapon(){
+			
 			return new Sword(INIT_SWORD_STRENGTH, INIT_SWORD_AGILITY);
 		}
 	}
