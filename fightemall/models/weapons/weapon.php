@@ -1,10 +1,11 @@
-<?php namespace Game\Models;
+<?php namespace Game\Models\Weapons;
+	include_once ("fightemall/utils/constants.php");
 	
 	
-	abstract class Character{
+	abstract class Weapon{
 		
-		protected $strength;
-		protected $agility;
+		private $strength;
+		private $agility;
 		
 		
 		protected function __construct($strength, $agility){
@@ -13,7 +14,7 @@
 		}
 		
 		
-		abstract public static function createNewCharacter();
+		abstract public static function createNewWeapon();
 		
 		
 		public function getStrength(){
@@ -25,3 +26,4 @@
 			return $this->agility;
 		}
 	}
+?>

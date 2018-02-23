@@ -1,6 +1,5 @@
-<?php namespace Game\Models;
-	include_once ("fightemall/utils/constants.php");
-	use Game\Models\Character;
+<?php namespace Game\Models\Characters;
+	use Game\Models\Characters\Character;
 	
 	
 	class Elf extends Character{

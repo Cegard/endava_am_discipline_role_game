@@ -1,5 +1,5 @@
 <?php namespace Game\Controllers;
-	use Game\Models\{Hooman, Dwarf, Elf};
+	use Game\Models\Characters\{Hooman, Dwarf, Elf};
 	
 	
 	class CharacterController{
