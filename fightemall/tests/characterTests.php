@@ -30,23 +30,17 @@
 		
 		
 		public function testNewHoomanHasHoomanStats(){
-			$hasHoomanDefaultStats = checkCharacterStats(OPTION_FOR_HOOMAN_SELECTION);
-			
-			$this->assertTrue($hasHoomanDefaultStats);
+			$this->assertTrue(checkCharacterStats(OPTION_FOR_HOOMAN_SELECTION));
 		}
 		
 		
 		public function testNewDwarfHasDwarfStats(){
-			$hasDwarfDefaultStats = checkCharacterStats(OPTION_FOR_DWARF_SELECTION);
-			
-			$this->assertTrue($hasDwarfDefaultStats);
+			$this->assertTrue(checkCharacterStats(OPTION_FOR_DWARF_SELECTION));
 		}
 		
 		
 		public function testNewElfHasElfStats(){
-			$hasElfDefaultStats = checkCharacterStats(OPTION_FOR_ELF_SELECTION);
-			
-			$this->assertTrue($hasElfDefaultStats);
+			$this->assertTrue(checkCharacterStats(OPTION_FOR_ELF_SELECTION));
 		}
 		
 		/*

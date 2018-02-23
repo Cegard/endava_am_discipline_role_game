@@ -6,7 +6,8 @@
 		
 		
 		public static function createNewWeapon(){
-			return new Bow(0, 0);
+			
+			return new Bow(INIT_BOW_STRENGTH, INIT_BOW_AGILITY);
 		}
 	}
 ?>

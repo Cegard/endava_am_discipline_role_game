@@ -28,9 +28,17 @@
 		
 		
 		public function testNewSwordHasDefaultStats(){
-			$hasSwordDefaultStats = checkWeaponStats(OPTION_FOR_SWORD_SELECTION);
-			
-			$this->assertTrue($hasSwordDefaultStats);
+			$this->assertTrue(checkWeaponStats(OPTION_FOR_SWORD_SELECTION));
+		}
+		
+		
+		public function testNewAxeHasDefaultStats(){
+			$this->assertTrue(checkWeaponStats(OPTION_FOR_AXE_SELECTION));
+		}
+		
+		
+		public function testNewBowHasDefaultStats(){
+			$this->assertTrue(checkWeaponStats(OPTION_FOR_BOW_SELECTION));
 		}
 	}
 ?>

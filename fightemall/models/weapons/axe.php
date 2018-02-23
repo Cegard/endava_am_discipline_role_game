@@ -6,7 +6,8 @@
 		
 		
 		public static function createNewWeapon(){
-			return new Axe(0, 0);
+			
+			return new Axe(INIT_AXE_STRENGTH, INIT_AXE_AGILITY);
 		}
 	}
 ?>
