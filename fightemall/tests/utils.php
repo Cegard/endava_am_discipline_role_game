@@ -1,6 +1,7 @@
 <?php namespace Game\Tests;
+	use Game\Controllers\{CharacterController, WeaponController};
+	use Game\Models\Weapons\{Sword, Axe, Bow};
 	include_once ("fightemall/utils/constants.php");
-	use GAME\Controllers\{CharacterController, WeaponController};
 	
 	define('OPTION_FOR_HOOMAN_SELECTION', 0);
 	define('OPTION_FOR_DWARF_SELECTION', 1);
@@ -54,7 +55,28 @@
 	
 	function checkWeaponStats($weaponCreationOption){
 		
-		return checkStats(weaponController::createWeapon($weaponCreationOption),
+		return checkStats(WeaponController::createWeapon($weaponCreationOption),
 						  DEFAULT_WEAPON_STATS, $weaponCreationOption);
+	}
+	
+	
+	function equipWeaponOnCharacter($weaponSelection, $characterSelection){
+		$character = CharacterController::createCharacter($characterSelection);
+		CharacterController::equipWeapon($character,
+										 WeaponController::createWeapon($weaponSelection));
+		
+		return $character->getWeapon();
+	}
+	
+	
+	function checkTypeOfCharacterWeapon($characterSelection, $weaponSelection){
+		$weaponsClasses = array(
+			OPTION_FOR_SWORD_SELECTION => Sword::class,
+			OPTION_FOR_AXE_SELECTION => Axe::class,
+			OPTION_FOR_BOW_SELECTION => Bow::class,
+		);
+		
+		return equipWeaponOnCharacter($weaponSelection, $characterSelection) instanceof
+				$weaponsClasses[$weaponSelection];
 	}
 ?>

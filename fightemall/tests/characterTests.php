@@ -1,9 +1,10 @@
 <?php
 	namespace Game\Tests;
 	include_once ("fightemall/tests/utils.php");
-	use PHPUnit\Framework\TestCase,
-		Game\Controllers\CharacterController;
+	use PHPUnit\Framework\TestCase;
+	use Game\Controllers\{CharacterController, WeaponController};
 	use	Game\Models\Characters\{Hooman, Dwarf, Elf};
+	use	Game\Models\Weapons\Sword;
 	#use const Game\Tests\OPTION_FOR_HOOMAN_SELECTION;
 	#use Game\Utils; #\{INIT_HOOMAN_STRENGTH, INIT_HOOMAN_AGILITY};
 	
@@ -43,14 +44,16 @@
 			$this->assertTrue(checkCharacterStats(OPTION_FOR_ELF_SELECTION));
 		}
 		
-		/*
-		public function testAHoomanCanEquipAWeapon(){
-			$hooman = CharacterController::createCharacter(OPTION_FOR_HOOMAN_SELECTION);
-			$weapon = WeaponController::createWeapon();
-			CharacterController::equipWeapon($hooman, $weapon);
-			
-			$this->isInstanceOf($hooman->getWeapon(), Weapon::class);
+		
+		public function testAHoomanCanEquipASword(){
+			$this->assertTrue(checkTypeOfCharacterWeapon(OPTION_FOR_HOOMAN_SELECTION,
+														 OPTION_FOR_SWORD_SELECTION));
 		}
-		*/
+		
+		
+		public function testADwarfCanEquipASword(){
+			$this->assertTrue(checkTypeOfCharacterWeapon(OPTION_FOR_DWARF_SELECTION,
+														 OPTION_FOR_SWORD_SELECTION));
+		}
 	}
 ?>

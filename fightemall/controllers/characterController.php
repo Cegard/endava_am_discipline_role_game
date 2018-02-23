@@ -16,8 +16,8 @@
 		}
 		
 		
-		public static function attack($attacker, $defender){
-			
+		public static function equipWeapon($character, $weapon){
+			$character->setWeapon($weapon);
 		}
 	}
 ?>
