@@ -18,7 +18,6 @@
 		OPTION_FOR_AXE_SELECTION => generateStatsArray(INIT_AXE_STRENGTH, INIT_AXE_AGILITY),
 		OPTION_FOR_BOW_SELECTION => generateStatsArray(INIT_BOW_STRENGTH, INIT_BOW_AGILITY),
 	));
-	define();
 	
 	
 	function generateStatsArray($strength, $agility){
@@ -30,35 +29,32 @@
 	}
 	
 	
-	function checkStats($defaultStats){
-		$model = CharacterController::createCharacter($modelCreationOption);
-		$hasModelDefaultStrength = $model->getStrength() ==
-				DEFAULT_CHARACTER_STATS[$modelCreationOption]["strength"];
-		$hasModelDefaultAgility = $model->getAgility() == 
-				DEFAULT_CHARACTER_STATS[$modelCreationOption]["agility"];
+	function compareModelStatAgainstDefault($modelStat, $defaultModelStats,
+											$modelCreationOption, $stat){
 		
-		return $hasModelDefaultStrength && $hasModelDefaultAgility;
+		return $modelStat == $defaultModelStats[$modelCreationOption][$stat];
+	}
+	
+	
+	function checkStats($model, $defaultModelStats, $modelCreationOption){
+		
+		return compareModelStatAgainstDefault($model->getStrength(), $defaultModelStats,
+											  $modelCreationOption, "strength") &&
+			   compareModelStatAgainstDefault($model->getAgility(), $defaultModelStats,
+										      $modelCreationOption, "agility");
 	}
 	
 	
 	function checkCharacterStats($characterCreationOption){
-		$character = CharacterController::createCharacter($characterCreationOption);
-		$hasCharacterDefaultStrength = $character->getStrength() ==
-				DEFAULT_CHARACTER_STATS[$characterCreationOption]["strength"];
-		$hasCharacterDefaultAgility = $character->getAgility() == 
-				DEFAULT_CHARACTER_STATS[$characterCreationOption]["agility"];
 		
-		return $hasCharacterDefaultStrength && $hasCharacterDefaultAgility;
+		return checkStats(CharacterController::createCharacter($characterCreationOption),
+						  DEFAULT_CHARACTER_STATS, $characterCreationOption);
 	}
 	
 	
 	function checkWeaponStats($weaponCreationOption){
-		$weapon = WeaponController::createWeapon($weaponCreationOption);
-		$hasWeaponDefaultStrength = $weapon->getStrength() ==
-				DEFAULT_WEAPON_STATS[$weaponCreationOption]["strength"];
-		$hasWeaponDefaultAgility = $weapon->getAgility() == 
-				DEFAULT_WEAPON_STATS[$weaponCreationOption]["agility"];
 		
-		return $hasWeaponDefaultStrength && $hasWeaponDefaultAgility;
+		return checkStats(weaponController::createWeapon($weaponCreationOption),
+						  DEFAULT_WEAPON_STATS, $weaponCreationOption);
 	}
 ?>

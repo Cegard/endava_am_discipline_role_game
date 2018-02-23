@@ -6,7 +6,7 @@
 	use	Game\Models\Weapons\{Sword, Axe, Bow};
 	
 	
-	final class WeaponTest extends TestCase{
+	final class WeaponTests extends TestCase{
 		
 		
 		public function testASwordCanBeCreated(){

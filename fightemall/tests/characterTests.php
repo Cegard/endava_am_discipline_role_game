@@ -8,7 +8,7 @@
 	#use Game\Utils; #\{INIT_HOOMAN_STRENGTH, INIT_HOOMAN_AGILITY};
 	
 	
-	final class CharacterTest extends TestCase{
+	final class CharacterTests extends TestCase{
 		
 		
 		public function testCreateHoomanFromSelection(){
